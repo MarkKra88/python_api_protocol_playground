@@ -1,3 +1,7 @@
+
+from src.core.utils import log_errors, log_input
+@log_errors
+@log_input()
 def start():
     while True:
         print("\n==== Python API Playground ====")
