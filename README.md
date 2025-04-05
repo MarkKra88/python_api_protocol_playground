@@ -39,11 +39,14 @@ gRPC       | Fibonacci microservice demo | Custom gRPC service
 MQTT       | Publish/Subscribe IoT mock  | Eclipse Mosquitto Broker
 
 
-
-
-
+Setup Instructions
 ------
-## License
+Copy `.env_template` to `.env` and fill in your API keys:
+cp .env_template .env
+
+
+License
+------
 This project is licensed under the MIT License.
 
 Author
