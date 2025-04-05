@@ -1,3 +1,5 @@
 # Virtual environment folders
 myenv/
 .env
+app_errors.log
+app_input.log
