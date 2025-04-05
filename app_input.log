@@ -1,7 +1,0 @@
-{"timestamp": "2025-04-05T16:24:36.024644", "trace_id": "e90711c6-60e8-40bd-b68a-2d4f993d10a1", "source": "cli", "module": "src.core.app", "function": "start", "input": {}}
-{"timestamp": "2025-04-05T16:25:51.875150", "trace_id": "3aa71521-ef2a-4ea8-86c0-09ac380ad9e6", "source": "cli", "module": "src.core.app", "function": "start", "input": {}}
-{"timestamp": "2025-04-05T16:30:27.010102", "trace_id": "70dc46a8-2553-4fd2-a982-0e4ca905f421", "module": "src.core.app", "function": "start", "input": {}}
-{"timestamp": "2025-04-05T16:33:29.587426", "trace_id": "b9e1c7b1-57a9-4f13-a5aa-4a4b15e18404", "module": "src.core.app", "function": "start", "input": {}}
-{"timestamp": "2025-04-05T16:36:25.825420", "trace_id": "f01d4f9a-9b92-4ba3-a818-4ec304925b16", "module": "src.core.app", "function": "start", "input": {}}
-{"timestamp": "2025-04-05T16:36:47.825161", "trace_id": "bad055cd-fae2-469b-a981-eecc107c7588", "module": "src.core.app", "function": "start", "input": {}}
-{"timestamp": "2025-04-05T16:37:12.115709", "trace_id": "ebb2db7e-e8bf-402c-b74e-6e44aec69361", "module": "src.core.app", "function": "start", "input": {}}
