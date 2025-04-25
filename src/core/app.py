@@ -17,8 +17,7 @@ def start():
         choice = input("Choose an option: ")
 
         if choice == "1":
-            from src.rest_api import rest_api_client
-            rest_api_client.run()
+            print("RestAPI module not yet implemented.")
 
         elif choice == "2":
             print("GraphQL module not yet implemented.")

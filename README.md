@@ -29,14 +29,15 @@ API Demos
 ---------
 Each protocol is implemented as a standalone Python script/module under `/src`. Here’s a quick rundown:
 
-Protocol   | Description                 | Live/Mock API Used
----------- | --------------------------- | ---------------------
-REST       | Simple weather data fetcher | OpenWeatherMap
-GraphQL    | Country data explorer       | Trevor Blades GraphQL API
-WebSocket  | Real-time BTC/USDT price    | Binance WebSocket API
-SOAP       | Number to Words converter   | DataAccess SOAP API
-gRPC       | Fibonacci microservice demo | Custom gRPC service
-MQTT       | Publish/Subscribe IoT mock  | Eclipse Mosquitto Broker
+Protocol   | Description | Live/Mock API Used 
+---------- |-------------|--------------------
+REST       | TBC         | TBC                
+| GraphQL   | TBC         | TBC                |
+| WebSocket | TBC         | TBC                |
+| SOAP      | TBC         | TBC                |
+| gRPC      | TBC         | TBC                |
+| MQTT      | TBC         | TBC                |
+
 
 
 Setup Instructions
