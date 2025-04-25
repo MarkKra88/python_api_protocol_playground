@@ -1,5 +1,6 @@
 from typing import Dict, Optional, Any
 from urllib.parse import urlencode
+import requests
 
 class BaseRESTClient:
 
@@ -26,3 +27,17 @@ class BaseRESTClient:
         if params:
             query_string = urlencode(params)
             url = f"{url}?{query_string}"
+
+
+    """
+    Perform a GET request to the given endpoint with optional query parameters.
+    Returns the raw HTML repsonse object(status, headers, content).
+    """
+
+    def get(self,
+            endpoint: str = "",
+            params: Optional[Dict[str, Any]] = None) -> requests.Response:
+        url = self.build_url(endpoint,params)
+        response = requests.get(url, headers=self.headers)
+        response.raise_for_status()
+        return response
