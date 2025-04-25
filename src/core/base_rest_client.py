@@ -28,6 +28,7 @@ class BaseRESTClient:
         if params:
             query_string = urlencode(params)
             url = f"{url}?{query_string}"
+        return url
 
 
     """
@@ -40,6 +41,26 @@ class BaseRESTClient:
             endpoint: str = "",
             params: Optional[Dict[str, Any]] = None) -> requests.Response:
         url = self.build_url(endpoint,params)
-        response = requests.get(url, headers=self.headers)
+        response = requests.get(url,headers=self.headers)
         response.raise_for_status() # This triggers @log_error only on failure
         return response
+
+
+"""
+Perform a test before pushing script.
+"""
+
+if __name__ == "__main__":
+
+    client = BaseRESTClient(
+        base_url="https://catfact.ninja/fact"
+    )
+
+    try:
+        response = client.get()
+        print("Success, raw response:")
+        print(response.json()["fact"])
+    except Exception as e:
+        print("Request failed:")
+        print(e)
+
