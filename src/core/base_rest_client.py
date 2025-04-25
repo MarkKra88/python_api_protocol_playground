@@ -1,6 +1,7 @@
 from typing import Dict, Optional, Any
 from urllib.parse import urlencode
 import requests
+from src.core.utils import log_errors
 
 class BaseRESTClient:
 
@@ -34,10 +35,11 @@ class BaseRESTClient:
     Returns the raw HTML repsonse object(status, headers, content).
     """
 
+    @log_errors
     def get(self,
             endpoint: str = "",
             params: Optional[Dict[str, Any]] = None) -> requests.Response:
         url = self.build_url(endpoint,params)
         response = requests.get(url, headers=self.headers)
-        response.raise_for_status()
+        response.raise_for_status() # This triggers @log_error only on failure
         return response
