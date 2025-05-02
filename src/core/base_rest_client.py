@@ -57,18 +57,19 @@ class BaseRESTClient:
 
 
     """
-    Perform a GET request to the given endpoint with optional query parameters.
-    Returns the raw HTML repsonse object(status, headers, content).
+    Main GET method: tries 'requests' first, falls back to 'urllib' if needed.
     """
-
     @log_errors
     def get(self,
             endpoint: str = "",
-            params: Optional[Dict[str, Any]] = None) -> requests.Response:
+            params: Optional[Dict[str, Any]] = None) -> dict:
         url = self.build_url(endpoint,params)
-        response = requests.get(url,headers=self.headers)
-        response.raise_for_status() # This triggers @log_error only on failure
-        return response
+
+        try:
+            return self.get_with_requests(url)
+        except Exception as e:
+            print("Primary request menthod failed. Retrying with backup (urllib)...")
+        return self.get_with_urllib(url)
 
 
 """
