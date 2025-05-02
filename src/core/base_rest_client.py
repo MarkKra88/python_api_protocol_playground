@@ -36,7 +36,7 @@ class BaseRESTClient:
     Perform a GET request using 'urllib' library
     """
     @log_errors
-    def get_with_urllib (self, url:str) -> dict:
+    def get_with_urllib (self, url: str) -> dict:
         req = Request(url, headers= self.headers)
         with urlopen(req) as res:
             data = res.read().decode("utf-8")
@@ -45,6 +45,14 @@ class BaseRESTClient:
             except json.JSONDecodeError:
                 return {"raw_data":data}
 
+    """
+    Perform a GET request using 'request' library
+    """
+    @log_errors
+    def get_with_requests(self, url: str) -> dict:
+        response = requests.get(url, headers=self.headers, allow_redirects=True, timeout=10)
+        response.raise_for_status()
+        return response.json()
 
 
 
