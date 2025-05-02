@@ -2,6 +2,8 @@ from typing import Dict, Optional, Any
 from urllib.parse import urlencode
 import requests
 from src.core.utils import log_errors
+import json
+from urllib.request import Request, urlopen
 
 class BaseRESTClient:
 
@@ -29,6 +31,21 @@ class BaseRESTClient:
             query_string = urlencode(params)
             url = f"{url}?{query_string}"
         return url
+
+    """
+    Perform a GET request using 'urllib' library
+    """
+    @log_errors
+    def get_with_urllib (self, url:str) -> dict:
+        req = Request(url, headers= self.headers)
+        with urlopen(req) as res:
+            data = res.read().decode("utf-8")
+            try:
+                return json.loads(data)
+            except json.JSONDecodeError:
+                return {"raw_data":data}
+
+
 
 
     """
