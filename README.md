@@ -1,50 +1,60 @@
 Python API Protocol Playground
 =============================
 
-A collection of mini-projects exploring different types of API protocols using Python. Each module demonstrates how to interact with a real-world API (or create your own) using a specific protocol:
+This project is created as a playground for testing various API protocols using Python. It focuses on building minimal but modular backend code using best practices (SOLID principles, clean structure, reusable base classes, and CLI-based interaction instead of UI). It’s designed more for backend understanding and API behavior exploration than production deployment.
 
-- REST
-- GraphQL
-- WebSocket
-- SOAP
-- gRPC
-- MQTT
+
+- REST ✅
+- GraphQL ✅
+- WebSocket ⏳
+- SOAP ⏳
+- gRPC ⏳
+- MQTT ⏳
 
 Project Goals
 -------------
 This repository is designed to:
 - Integrate with external services using different protocols
+- Create reusable 'BaseClient' structure with pluggable endpoints
 - Compare synchronous vs. asynchronous API handling in Python
+- Use CLI-driven development to simulate frontend integration flow
 - Serve as a reusable learning or reference tool
+- Log structured errors using decorators for debugging and future dashboarding
 
 Technologies Used
 -----------------
 - Python 3.10+
-- requests / gql / websockets / zeep / grpcio / paho-mqtt
-- Docker (optional for containerization)
-- asyncio (for WebSocket handling)
-- Protocol Buffers (for gRPC)
+- `requests` (REST/GraphQL)
+- `dotenv` (for local environment handling)
+- Built-in modules only unless needed per protocol
 
-API Demos
+
+PROTOCOLS PLANNED
 ---------
 Each protocol is implemented as a standalone Python script/module under `/src`. Here’s a quick rundown:
 
-Protocol   | Description | Live/Mock API Used 
----------- |-------------|--------------------
-REST       | TBC         | TBC                
-| GraphQL   | TBC         | TBC                |
-| WebSocket | TBC         | TBC                |
-| SOAP      | TBC         | TBC                |
-| gRPC      | TBC         | TBC                |
-| MQTT      | TBC         | TBC                |
+| Protocol  | Description | 
+|-----------|-------------|
+| REST      | Done        | 
+| GraphQL   | Done        | 
+| WebSocket | Planned     | 
+| SOAP      | Planned     | 
+| gRPC      | Planned     | 
+| MQTT      | Planned     | 
 
 
 
-Setup Instructions
-------
-Copy `.env_template` to `.env` and fill in your API keys:
-cp .env_template .env
+## CURRENT STRUCTURE
 
+- `src/core/` – Shared base clients (`BaseRESTClient`, `BaseGraphQLClient`), error logging decorators
+- `src/rest_api/` – Specific implementations, e.g. EPC API
+- `src/graphql/` – Optional subclients or schema-specific logic
+- `.env_template` – Template for managing sensitive data
+- `.gitignore` – Excludes venv, `.env`, logs, etc.
+
+## TESTING & USAGE
+
+- Each protocol can be run standalone via `if __name__ == "__main__"` section in the base client
 
 License
 ------
